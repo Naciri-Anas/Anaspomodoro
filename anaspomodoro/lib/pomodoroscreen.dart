@@ -1,4 +1,6 @@
 import 'package:anaspomodoro/utils.dart';
+import 'package:anaspomodoro/widgets/timeoptions.dart';
+import 'package:anaspomodoro/widgets/timercard.dart';
 import 'package:flutter/material.dart';
 
 class PomodoroScreen extends StatelessWidget {
@@ -7,13 +9,36 @@ class PomodoroScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-      elevation: 0,
       backgroundColor: Colors.redAccent,
-      title: Text(
-        "AnasTimer",
-        style: textStyle(25, Colors.white, FontWeight.w700),
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.redAccent,
+        title: Text(
+          "YouTimer",
+          style: textStyle(25, Colors.white, FontWeight.w700),
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.refresh,
+              color: Colors.white,
+            ),
+            iconSize: 40,
+            onPressed: () {},
+          )
+        ],
       ),
-    ));
+      body: SingleChildScrollView(
+        child: Container(
+          alignment: Alignment.center,
+          child: Column(children: [
+            SizedBox(height: 15),
+            TimerCard(),
+            SizedBox(height: 40,),
+            TimeOptions()
+          ]),
+        ),
+      ),
+    );
   }
 }
